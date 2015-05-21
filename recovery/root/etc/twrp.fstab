@@ -1,0 +1,10 @@
+/system         ext4    /dev/block/by-name/system
+/system_image   emmc    /dev/block/by-name/system
+/cache          ext4    /dev/block/by-name/cache
+/data           ext4    /dev/block/by-name/data         flags=encryptable=/factory/userdata_footer
+/boot           emmc    /dev/block/by-name/boot
+/recovery       emmc    /dev/block/by-name/recovery
+/misc           emmc    /dev/block/by-name/misc
+/factory        ext4    /dev/block/by-name/factory
+/fastboot       emmc    /dev/block/by-name/fastboot
+/splashscreen   emmc    /dev/block/by-name/splashscreen

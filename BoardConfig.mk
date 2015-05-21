@@ -202,3 +202,13 @@ INTEL_USE_CAMERA_UVC := true
 
 # Recipes to generate prebuilts
 -include device/intel/common/external/external.mk
+
+#TWRP
+RECOVERY_VARIANT := twrp
+TW_THEME := portrait_hdpi
+RECOVERY_SDCARD_ON_DATA := true
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
+TW_NO_SCREEN_TIMEOUT := true
+TW_NO_USB_STORAGE := true
+
