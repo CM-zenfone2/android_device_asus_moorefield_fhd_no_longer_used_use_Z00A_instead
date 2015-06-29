@@ -31,7 +31,7 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-dalv
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
 DEVICE_PACKAGE_OVERLAYS := \
-    device/asus/moorefield/fhd/overlay
+    device/asus/moorefield/overlay
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -80,7 +80,7 @@ PRODUCT_PACKAGES += \
 
 # specific management of audio_policy.conf
 PRODUCT_COPY_FILES += \
-    device/asus/moorefield/fhd/configs/audio_policy.conf:system/etc/audio_policy.conf
+    device/asus/moorefield/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 # Hdmi CEC: Fugu works as a playback device (4).
 PRODUCT_PROPERTY_OVERRIDES += ro.hdmi.device_type=4
@@ -115,8 +115,8 @@ PRODUCT_PACKAGES += \
     bt_bcm4354
 
 PRODUCT_COPY_FILES += \
-    device/asus/moorefield/fhd/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf \
-    device/asus/moorefield/fhd/wifi/bcmdhd.cal:system/etc/wifi/bcmdhd.cal 
+    device/asus/moorefield/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf \
+    device/asus/moorefield/wifi/bcmdhd.cal:system/etc/wifi/bcmdhd.cal 
 
 PRODUCT_PROPERTY_OVERRIDES += \
     bt.hfp.WideBandSpeechEnabled=true
@@ -128,14 +128,14 @@ PRODUCT_PACKAGES += \
 
 #Video
 PRODUCT_COPY_FILES += \
-    device/asus/moorefield/fhd/media/media_profiles.xml:system/etc/media_profiles.xml \
-    device/asus/moorefield/fhd/media/wrs_omxil_components.list:system/etc/wrs_omxil_components.list \
+    device/asus/moorefield/media/media_profiles.xml:system/etc/media_profiles.xml \
+    device/asus/moorefield/media/wrs_omxil_components.list:system/etc/wrs_omxil_components.list \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
     frameworks/av/media/libstagefright/data/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml \
-    device/asus/moorefield/fhd/media/media_codecs.xml:system/etc/media_codecs.xml \
-    device/asus/moorefield/fhd/media/mfx_omxil_core.conf:system/etc/mfx_omxil_core.conf \
-    device/asus/moorefield/fhd/media/video_isv_profile.xml:system/etc/video_isv_profile.xml
+    device/asus/moorefield/media/media_codecs.xml:system/etc/media_codecs.xml \
+    device/asus/moorefield/media/mfx_omxil_core.conf:system/etc/mfx_omxil_core.conf \
+    device/asus/moorefield/media/video_isv_profile.xml:system/etc/video_isv_profile.xml
 
 
 # psb video
@@ -228,7 +228,7 @@ PRODUCT_PACKAGES += \
     bcmdhd.cal
 
 PRODUCT_COPY_FILES += \
-    device/asus/moorefield/fhd/wifi/wpa_supplicant.conf:/system/etc/wifi/wpa_supplicant.conf
+    device/asus/moorefield/wifi/wpa_supplicant.conf:/system/etc/wifi/wpa_supplicant.conf
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
@@ -258,15 +258,15 @@ PRODUCT_COPY_FILES += \
 
 # Key layout files
 PRODUCT_COPY_FILES += \
-    device/asus/moorefield/fhd/keylayout/ASUS_TransKeyboard.kl:system/usr/keylayout/ASUS_TransKeyboard.kl \
-    device/asus/moorefield/fhd/keylayout/ftxxxx_ts.kl:system/usr/keylayout/ftxxxx_ts.kl\
-    device/asus/moorefield/fhd/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-    device/asus/moorefield/fhd/keylayout/lm49453-audio_Intel_MID_Audio_Jack.kl:system/usr/keylayout/lm49453-audio_Intel_MID_Audio_Jack.kl \
-    device/asus/moorefield/fhd/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl
+    device/asus/moorefield/keylayout/ASUS_TransKeyboard.kl:system/usr/keylayout/ASUS_TransKeyboard.kl \
+    device/asus/moorefield/keylayout/ftxxxx_ts.kl:system/usr/keylayout/ftxxxx_ts.kl\
+    device/asus/moorefield/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+    device/asus/moorefield/keylayout/lm49453-audio_Intel_MID_Audio_Jack.kl:system/usr/keylayout/lm49453-audio_Intel_MID_Audio_Jack.kl \
+    device/asus/moorefield/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl
 
 #GFX Config
 PRODUCT_COPY_FILES += \
-    device/asus/moorefield/fhd/powervr.ini:system/etc/powervr.ini
+    device/asus/moorefield/powervr.ini:system/etc/powervr.ini
 
 # Thermal itux
 ENABLE_ITUXD := true
@@ -286,13 +286,8 @@ $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4354
 
 # specific management of sep_policy.conf
 PRODUCT_COPY_FILES += \
-    device/asus/moorefield/fhd/sep_policy.conf:system/etc/security/sep_policy.conf
+    device/asus/moorefield/sep_policy.conf:system/etc/security/sep_policy.conf
 
 # hardware optimizations
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.isa.x86.features=sse4_2,aes_in,popcnt,movbe
-
-# Hack my logs
-PRODUCT_COPY_FILES += \
-    device/asus/moorefield/fhd/10logcat:system/etc/init.d/10logcat \
-    device/asus/moorefield/fhd/20kmsg:system/etc/init.d/20kmsg
