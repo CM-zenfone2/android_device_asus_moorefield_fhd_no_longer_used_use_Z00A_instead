@@ -1,0 +1,13 @@
+[
+  {
+    "repository":   "DirtyUnicorns/android_kernel_asus_moorefield",
+    "target_path":  "kernel/asus/moorefield",
+    "branch":       "lollipop-caf"
+  },
+  {
+    "repository":   "DirtyUnicorns/android_vendor_asus",
+    "target_path":  "vendor/asus",
+    "branch":       "lollipop-caf"
+  }
+
+]
